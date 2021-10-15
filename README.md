@@ -1,5 +1,7 @@
 # multiple-choice-test-system
 
+### Built with ASP .NET Core & Angular
+
 ## Installing / Getting started
 
 1. For angular you need to add node modules. Run this command in your terminal.
