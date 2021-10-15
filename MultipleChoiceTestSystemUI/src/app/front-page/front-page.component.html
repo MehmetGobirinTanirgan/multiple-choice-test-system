@@ -1,0 +1,77 @@
+<div *ngIf="userInfoForm != undefined" class="container-fluid">
+  <header class="d-flex justify-content-center">
+    <h1>Multiple Choice Test System</h1>
+  </header>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <form [formGroup]="userInfoForm" (ngSubmit)="takeExam()">
+          <div class="mb-3">
+            <input formControlName="name" type="text" placeholder="Name" class="form-control" required>
+            <div *ngIf="userInfoForm.get('name')?.invalid && userInfoForm.get('name')?.touched" class="text-danger">
+              <span *ngIf="userInfoForm.get('name')?.errors?.required">Name is required.</span>
+              <span *ngIf="userInfoForm.get('name')?.errors?.maxlength">Max 50 characters. </span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input formControlName="surname" type="text" placeholder="Surname" class="form-control" required>
+            <div *ngIf="userInfoForm.get('surname')?.invalid && userInfoForm.get('surname')?.touched" class="text-danger">
+              <span *ngIf="userInfoForm.get('surname')?.errors?.required">Surname is required.</span>
+              <span *ngIf="userInfoForm.get('surname')?.errors?.maxlength">Max 50 characters. </span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input formControlName="emailAddress" type="text" placeholder="Email Address" class="form-control" required>
+            <div *ngIf="userInfoForm.get('emailAddress')?.invalid && userInfoForm.get('emailAddress')?.touched" class="text-danger">
+              <span *ngIf="userInfoForm.get('emailAddress')?.errors?.required">Name is required.</span>
+              <span *ngIf="userInfoForm.get('emailAddress')?.errors?.email">Please type a valid mail.</span>
+              <span *ngIf="userInfoForm.get('emailAddress')?.errors?.maxlength">Max 50 characters. </span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input formControlName="phoneNumber" type="text" placeholder="Phone Number(Optional)" class="form-control">
+            <div *ngIf="userInfoForm.get('phoneNumber')?.invalid && userInfoForm.get('phoneNumber')?.touched" class="text-danger">
+              <span *ngIf="userInfoForm.get('phoneNumber')?.errors?.maxlength">Max 50 characters. </span>
+            </div>
+          </div>
+        <div class="mb-3 d-flex justify-content-center align-items-center flex-column">
+            <button type="submit" class="btn btn-primary"
+            [disabled]="userInfoForm.invalid">Take Exam</button>
+            <a (click)= "openAdminModal()" class="mt-2">Admin Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template *ngIf="adminLoginForm != undefined" #adminLoginModal let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <form [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()" method="POST">
+      <div class="d-flex justify-content-center">
+        <h4 class="modal-title">Admin Login</h4>
+      </div>
+
+      <div class="mb-3">
+        <input formControlName="username" type="text" placeholder="Username" class="form-control d-block"
+          required>
+        <div *ngIf="adminLoginForm.get('username')?.invalid && adminLoginForm.get('username')?.touched" class="text-danger">
+          <span *ngIf="adminLoginForm.get('username')?.errors?.required">Username is required.</span>
+          <span *ngIf="adminLoginForm.get('username')?.errors?.maxlength">Max 50 characters. </span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <input formControlName="password" type="password" placeholder="Password" class="form-control d-block"
+          required>
+        <div *ngIf="adminLoginForm.get('password')?.invalid && adminLoginForm.get('password')?.touched" class="text-danger">
+          <span *ngIf="adminLoginForm.get('password')?.errors?.required">Password is required.</span>
+          <span *ngIf="adminLoginForm.get('password')?.errors?.maxlength">Max 20 characters. </span>
+          <span *ngIf="adminLoginForm.get('password')?.errors?.minlength">Min 8 characters. </span>
+        </div>
+      </div>
+      <div class="d-flex mt-2 form-group justify-content-center">
+        <button type="submit" class="btn btn-primary" (click)="c('Save click')"
+          [disabled]="adminLoginForm.invalid">Login</button>
+        <button type="reset" class="btn btn-outline-primary ms-2" (click)="d('Close click')">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

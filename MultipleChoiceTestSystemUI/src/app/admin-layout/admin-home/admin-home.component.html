@@ -1,0 +1,17 @@
+<div *ngIf="(questions != undefined && questions != null); else noQuestions">
+  <div *ngFor="let question of questions; let i = index;" class="card my-5 mx-5">
+    <div class="card-body">
+      <p class="card-text"><strong>Q{{i+1}}. </strong>{{question.questionText}}</p>
+      <strong>Answer: </strong><label>{{question.rightAnswer}}</label>
+    </div>
+    <div class="d-flex flex-column justify-content-center">
+      <strong class="mx-2">Sample Options</strong>
+      <label class="my-2 mx-2 align-items-center border" *ngFor="let option of question.options;">
+        {{option.optionText}}
+      </label>
+    </div>
+  </div>
+</div>
+<ng-template #noQuestions>
+  <p>No questions found</p>
+</ng-template>

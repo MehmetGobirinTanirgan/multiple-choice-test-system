@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Result</h5>
+  </div>
+  <hr>
+  <table class="table" *ngIf="result != undefined">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Correct</th>
+        <th scope="col">Wrong</th>
+        <th scope="col">Success</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{result.rightAnswerCt!}}</td>
+        <td>{{result.wrongAnswerCt!}}</td>
+        <td>% {{result.rightAnswerCt! * 10}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,23 @@
+.header {
+  background-color: #2f353a;
+  color: #ffff;
+}
+
+.admin-nav {
+  background-color: #3a4149;
+  color: #ffff;
+  min-height: 94vh;
+}
+
+.nav-list {
+  list-style-type: none;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #ffff;
+}
+
+.nav-list a:hover {
+  color: orange;
+}

@@ -1,0 +1,50 @@
+<div *ngIf="newQuestionForm != undefined" class="d-flex justify-content-center px-5">
+    <form [formGroup]="newQuestionForm" (ngSubmit)="addNewQuestion()">
+        <div class="my-3">
+          <textarea formControlName="questionText" type="text" placeholder="Question" class="form-control" required></textarea>
+          <div *ngIf="newQuestionForm.get('questionText')?.invalid && newQuestionForm.get('questionText')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('questionText')?.errors?.required">Question is required.</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input formControlName="rightAnswer" type="text" placeholder="Right Answer" class="form-control" required>
+          <div *ngIf="newQuestionForm.get('rightAnswer')?.invalid && newQuestionForm.get('rightAnswer')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('rightAnswer')?.errors?.required">Answer is required.</span>
+            <span *ngIf="newQuestionForm.get('rightAnswer')?.errors?.maxlength">Max 100 characters. </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input formControlName="option1" type="text" placeholder="Option 1" class="form-control" required>
+          <div *ngIf="newQuestionForm.get('option1')?.invalid && newQuestionForm.get('option1')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('option1')?.errors?.required">Option 1 is required.</span>
+            <span *ngIf="newQuestionForm.get('option1')?.errors?.maxlength">Max 100 characters. </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input formControlName="option2" type="text" placeholder="Option 2" class="form-control" required>
+          <div *ngIf="newQuestionForm.get('option2')?.invalid && newQuestionForm.get('option2')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('option2')?.errors?.required">Option 2 is required.</span>
+            <span *ngIf="newQuestionForm.get('option2')?.errors?.maxlength">Max 100 characters. </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input formControlName="option3" type="text" placeholder="Option 3" class="form-control" required>
+          <div *ngIf="newQuestionForm.get('option3')?.invalid && newQuestionForm.get('option3')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('option3')?.errors?.required">Option 3 is required.</span>
+            <span *ngIf="newQuestionForm.get('option3')?.errors?.maxlength">Max 100 characters. </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input formControlName="option4" type="text" placeholder="Option 4" class="form-control" required>
+          <div *ngIf="newQuestionForm.get('option4')?.invalid && newQuestionForm.get('option4')?.touched" class="text-danger">
+            <span *ngIf="newQuestionForm.get('option4')?.errors?.required">Option 4 is required.</span>
+            <span *ngIf="newQuestionForm.get('option4')?.errors?.maxlength">Max 100 characters. </span>
+          </div>
+        </div>
+      <div class="mb-3 d-flex justify-content-center align-items-center">
+          <button type="submit" class="btn btn-primary"
+          [disabled]="newQuestionForm.invalid">Save</button>
+          <button type="reset" class="btn btn-warning ms-2">Cancel</button>
+      </div>
+    </form>
+</div>
