@@ -1,6 +1,6 @@
 # multiple-choice-test-system
 
-### Built with ASP .NET Core & Angular
+### Built with Angular & ASP .NET Core & MS-SQL
 
 ## Installing / Getting started
 
