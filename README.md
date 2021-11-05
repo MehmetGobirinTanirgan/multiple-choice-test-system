@@ -26,7 +26,7 @@ npm install --save-dev @angular-devkit/build-angular
 }
 ```
 
-4. You can find the backup file of sample database in the 'DatabaseBackup' folder, if you want to create a new one:
+4. Creation of database:
 
     - Open package manager console in Visual Studio.
     - Select 'MCTS.DB' as default project in package manager console.
